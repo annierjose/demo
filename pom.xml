@@ -51,9 +51,6 @@
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
-					<skipTests>false</skipTests>
-					<testFailureIgnore>true</testFailureIgnore>
-					<forkMode>once</forkMode>
 				</configuration>
 			</plugin>
 		</plugins>
