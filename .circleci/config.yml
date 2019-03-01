@@ -27,16 +27,17 @@ jobs:
     # Download and cache dependencies
     - restore_cache:
         keys:
-        - v1-dependencies-{{ checksum "build.gradle" }}
+          key: -repo-{{ checksum "pom.xml" }}
+        #- v1-dependencies-{{ checksum "build.gradle" }}
         # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
+        # - v1-dependencies-
 
-    - run: gradle dependencies
+    - run: mvn test
 
     - save_cache:
         paths:
-        - ~/.gradle
-        key: v1-dependencies-{{ checksum "build.gradle" }}
+        - ~/.m2
+        key: repo-{{ checksum "pom.xml" }}
 
-    # run tests!
-    - run: gradle test
+    - store_test_results:
+        path: target/surefire-reports
