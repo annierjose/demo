@@ -32,7 +32,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           # - v1-dependencies-
 
-      - run: mvn package
+      - run: mvn test
 
       - save_cache:
           paths:
@@ -41,6 +41,3 @@ jobs:
 
       - store_test_results:
           path: target/surefire-reports
-
-      - store_artifacts:
-          path: target/demo-0.0.1-SNAPSHOT.jar
