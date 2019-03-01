@@ -33,6 +33,7 @@ jobs:
         # - v1-dependencies-
 
     - run: cd /home/circleci/demo
+    - run: ls
     - run: mvn test
 
     - save_cache:
