@@ -26,8 +26,7 @@ jobs:
 
     # Download and cache dependencies
     - restore_cache:
-        keys:
-          - demo-{{ checksum "pom.xml" }}
+        key: demo-{{ checksum "pom.xml" }}
         #- v1-dependencies-{{ checksum "build.gradle" }}
         # fallback to using the latest cache if no exact match is found
         # - v1-dependencies-
