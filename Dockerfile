@@ -1,1 +1,1 @@
-FROM demo/maven:3.3-jdk-8
+FROM openjdk:8-jre-alpine
