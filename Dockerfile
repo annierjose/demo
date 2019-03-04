@@ -1,1 +1,1 @@
-FROM ubuntu:18.04
+FROM demo/maven:3.3-jdk-8
