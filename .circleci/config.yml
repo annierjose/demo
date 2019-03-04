@@ -32,15 +32,18 @@ jobs:
           command: |
             mkdir docker-image
             docker save -o docker-image/image.tar $FULL_IMAGE_NAME
+      - persist_to_workspace:
+          root: .
+          paths:
+            - docker-image
+
 
   deploy:
     docker:
-      - image: circleci/python:2.7-jessie
-    working_directory: ~/circleci-docs
-    steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
+    - image: circleci/openjdk:8-jdk-browsers
+    environment:
+      AWS_DEFAULT_OUTPUT: json
+
 
 workflows:
   version: 2
