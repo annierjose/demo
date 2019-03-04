@@ -48,15 +48,9 @@ jobs:
       - setup_remote_docker
       - attach_workspace:
           at: workspace
-      - restore_cache:
-          key: v1-{{ checksum "requirements.txt" }}
       - run:
           name: Install the AWS CLI
           command: sudo apt-get -y -qq install awscli
-      - save_cache:
-          key: v1-{{ checksum "requirements.txt" }}
-          paths:
-            - "venv"
 
 
 
