@@ -6,6 +6,7 @@ jobs:
       - image: circleci/openjdk:8-jdk-browsers
     steps:
       - checkout
+      - setup_remote_docker
       - restore_cache:
           key: demo-{{ checksum "pom.xml" }}
       - run: mvn dependency:go-offline
