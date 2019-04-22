@@ -70,7 +70,7 @@ jobs:
           name: Push image to ECR
           command: |
             eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$CIRCLE_SHA1
+            docker push $FULL_IMAGE_NAME
       - run:
           name: Deploy
           command: |
