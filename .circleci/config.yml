@@ -52,11 +52,6 @@ jobs:
           name: Install the AWS CLI
           command: sudo apt-get -y -qq install awscli
       - run:
-          name: Loging
-          command: |
-            aws ecr get-login --region ${AWS_DEFAULT_REGION}
-            docker login -u ${AWS_ACCESS_KEY_ID} -p ${AWS_SECRET_ACCESS_KEY} -e none ${FULL_IMAGE_NAME}
-      - run:
           name: Load image
           command: |
             docker load --input workspace/docker-image/image.tar
