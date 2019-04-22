@@ -72,6 +72,7 @@ jobs:
           command: |
             eval $(aws ecr get-login --region us-east-2 --no-include-email)
             docker push $FULL_IMAGE_NAME
+            k
       - run:
           name: Deploy
           command: |
