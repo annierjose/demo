@@ -70,8 +70,7 @@ jobs:
       - run:
           name: Push image to ECR
           command: |
-            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION)
-            echo '${FULL_IMAGE_NAME}'
+            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
             docker push $FULL_IMAGE_NAME
       - run:
           name: Deploy
