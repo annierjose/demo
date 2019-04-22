@@ -32,9 +32,6 @@ jobs:
           command: |
             mkdir docker-image
             docker save -o docker-image/image.tar $FULL_IMAGE_NAME
-            docker ps
-            cd docker-image
-            ls
       - persist_to_workspace:
           root: .
           paths:
@@ -63,6 +60,9 @@ jobs:
           name: Load image
           command: |
             docker load --input workspace/docker-image/image.tar
+            docker ps
+            cd docker-image
+            ls
       - run:
           name: Setup common environment variables
           command: |
