@@ -60,9 +60,6 @@ jobs:
           name: Load image
           command: |
             docker load --input workspace/docker-image/image.tar
-            docker ps
-            cd docker-image
-            ls
       - run:
           name: Setup common environment variables
           command: |
