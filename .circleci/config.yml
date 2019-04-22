@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Load image
           command: |
-            docker load --input workspace/docker-image/image.tar
+            docker load --input $FULL_IMAGE_NAME
       - run:
           name: Setup common environment variables
           command: |
