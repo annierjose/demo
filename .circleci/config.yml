@@ -52,9 +52,12 @@ jobs:
           name: Install the AWS CLI
           command: sudo apt-get -y -qq install awscli
       - run:
+          name: Log in to AWS ECR
+          command: eval $(aws ecr get-login)
+      - run:
           name: Load image
           command: |
-            docker load --input $FULL_IMAGE_NAME
+            docker load --input workspace/docker-image/image.tar
       - run:
           name: Setup common environment variables
           command: |
