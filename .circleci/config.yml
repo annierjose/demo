@@ -51,9 +51,6 @@ jobs:
       - run:
           name: Install the AWS CLI
           command: sudo apt-get -y -qq install awscli
-      - aws-cli/configure:
-          aws-access-key-id: $AWS_ACCESS_KEY_ID
-          aws-region: $AWS_DEFAULT_REGION
       - run:
           name: Load image
           command: |
